@@ -50,10 +50,9 @@ RSpec.describe '/poketrainers/:poketrainer_id/pokemons', type: :feature do
     end
 
     it 'has a link at the top of the page that takes me to Pokemon index' do
-      visit '/pokemons'
+      visit "/poketrainers/#{@misty.id}/pokemons"
       
-      save_and_open_page
-      expect(page).to have_link('Poketrainer Index', href: '/pokemons')
+      expect(page).to have_link('Pokemon Index', href: '/pokemons')
     end
 
     it 'has a link at the top of the page that takes me to Poketrainer index' do
