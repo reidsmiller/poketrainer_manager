@@ -8,7 +8,7 @@ RSpec.describe "/poketrainers", type: :feature do
     it 'displayes the name of each poketrainer' do
       visit '/poketrainers'
 
-      save_and_open_page
+      # save_and_open_page
       expect(page).to have_content(ash_ketchum.name)
       expect(page).to have_content(misty.name)
     end

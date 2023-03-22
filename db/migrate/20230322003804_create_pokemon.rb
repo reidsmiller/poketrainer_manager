@@ -6,7 +6,7 @@ class CreatePokemon < ActiveRecord::Migration[5.2]
       t.string :primary_type
       t.string :secondary_type
       t.string :temperment
-      t.boolean :bonded_to_traner
+      t.boolean :bonded_to_trainer
       t.references :poketrainer, foreign_key: true
 
       t.timestamps

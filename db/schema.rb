@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2023_03_22_003804) do
     t.string "primary_type"
     t.string "secondary_type"
     t.string "temperment"
-    t.boolean "bonded_to_traner"
+    t.boolean "bonded_to_trainer"
     t.bigint "poketrainer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
