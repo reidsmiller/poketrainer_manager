@@ -10,7 +10,7 @@ RSpec.describe "/poketrainers/:id", type: :feature do
     it 'I see the poketrainer with that id including the poketrainers attributes' do
       visit "/poketrainers/#{@ash_ketchum.id}"
 
-      save_and_open_page
+      # save_and_open_page
       expect(page).to have_content(@ash_ketchum.name)
       expect(page).to have_content("Age: #{@ash_ketchum.age}")
       expect(page).to have_content("Hometown: #{@ash_ketchum.hometown}")
@@ -19,7 +19,7 @@ RSpec.describe "/poketrainers/:id", type: :feature do
 
       visit "/poketrainers/#{@misty.id}"
 
-      save_and_open_page
+      # save_and_open_page
       expect(page).to have_content(@misty.name)
       expect(page).to have_content("Age: #{@misty.age}")
       expect(page).to have_content("Hometown: #{@misty.hometown}")

@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   get '/poketrainers', to: 'poketrainers#index'
   get '/poketrainers/:id', to: 'poketrainers#show'
   get '/pokemons', to: 'pokemons#index'
+  get '/pokemons/:id', to: 'pokemons#show'
 end

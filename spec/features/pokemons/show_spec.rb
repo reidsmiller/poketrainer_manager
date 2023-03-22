@@ -10,10 +10,9 @@ RSpec.describe "/pokemons/:id", type: :feature do
 
   describe 'as a visitor, when I visit /pokemons/:id' do
     it 'I see the pokemon with that id including its attributes' do
-      visit "/pokemons/#{@pokemon_1}"
+      visit "/pokemons/#{@pokemon_1.id}"
 
       save_and_open_page
-      expect(page).to have_content("Pokemon Index Page")
       expect(page).to have_content(@pokemon_1.name)
       expect(page).to have_content("Level: #{@pokemon_1.level}")
       expect(page).to have_content("Primary Type: #{@pokemon_1.primary_type}")
@@ -21,7 +20,7 @@ RSpec.describe "/pokemons/:id", type: :feature do
       expect(page).to have_content("Temperment: #{@pokemon_1.temperment}")
       expect(page).to have_content("Bonded to trainer?: #{@pokemon_1.bonded_to_trainer}")
 
-      visit "/pokemons/#{@pokemon_2}"
+      visit "/pokemons/#{@pokemon_2.id}"
 
       save_and_open_page
       expect(page).to have_content(@pokemon_2.name)
