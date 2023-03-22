@@ -1,0 +1,8 @@
+<ul>
+  <li><a href='/pokemons'>Pokemon Index</a></li>
+</ul>
+<h1>Poketrainer Index Page</h1>
+<br>
+<% @poketrainers.each do |poketrainer| %>
+  <h3><%= poketrainer.name %><h3>
+<% end %>

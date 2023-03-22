@@ -1,0 +1,13 @@
+<ul>
+  <li><a href='/pokemons'>Pokemon Index</a></li>
+  <li><a href='/poketrainers'>Poketrainer Index</a></li>
+</ul>
+<h1><%= @poketrainer.name %></h1>
+<p><a href="/poketrainers/<%= @poketrainer.id %>/pokemons"><%= @poketrainer.name %>'s Pokemon</a></p>
+<ul>
+  <li>Age: <%= @poketrainer.age %></li>
+  <li>Hometown: <%= @poketrainer.hometown %></li>
+  <li>Gym Badges: <%= @poketrainer.gym_badges %></li>
+  <li>Has a bike: <%= @poketrainer.has_bike %>
+  <li>Number of Pokemon caught: <%= @poketrainer.pokemon_count %>
+</ul>

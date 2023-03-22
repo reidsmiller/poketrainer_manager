@@ -1,0 +1,15 @@
+<ul>
+  <li><a href='/poketrainers'>Poketrainer Index</a></li>
+</ul>
+<h1>Pokemon Index Page</h1>
+<br>
+<% @pokemons.each do |pokemon| %>
+  <h3><%= pokemon.name %></h3>
+  <ul>
+    <li>Level: <%= pokemon.level %></li>
+    <li>Primary Type: <%= pokemon.primary_type %></li>
+    <li>Secondary Type: <%= pokemon.secondary_type %></li>
+    <li>Temperment: <%= pokemon.temperment %></li>
+    <li>Bonded to trainer?: <%= pokemon.bonded_to_trainer %></li>
+  </ul>
+<% end %>
