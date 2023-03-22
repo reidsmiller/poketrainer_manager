@@ -26,5 +26,11 @@ RSpec.describe "/poketrainers", type: :feature do
       expect(@misty.name).to appear_before(@ash_ketchum.name)
       expect(@brock.name).to appear_before(@ash_ketchum.name)
     end
+
+    it 'has a link at the top of the page that takes me to Poketrainer index' do
+      visit '/poketrainers'
+
+      expect(page).to have_link('Poketrainer Index', href: '/poketrainers')
+    end
   end
 end

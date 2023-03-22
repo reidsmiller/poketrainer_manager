@@ -61,7 +61,7 @@ When I visit the parent index,
 I see that records are ordered by most recently created first
 And next to each of the records I see when it was created
 
-[ ] done
+[x] done
 
 ### User Story 7, Parent Child Count
 
@@ -78,6 +78,7 @@ I see a count of the number of children associated with this parent
 As a visitor
 When I visit any page on the site
 Then I see a link at the top of the page that takes me to the Child Index
+
 [ ] done
 
 ### User Story 9, Parent Index Link

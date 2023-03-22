@@ -30,5 +30,11 @@ RSpec.describe "/pokemons/:id", type: :feature do
       expect(page).to have_content("Temperment: #{@pokemon_2.temperment}")
       expect(page).to have_content("Bonded to trainer?: #{@pokemon_2.bonded_to_trainer}")
     end
+
+    it 'has a link at the top of the page that takes me to Poketrainer index' do
+      visit "/pokemons/#{pokemon_2.id}"
+
+      expect(page).to have_link('Poketrainer Index', href: '/poketrainers')
+    end
   end
 end

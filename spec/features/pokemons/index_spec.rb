@@ -12,7 +12,6 @@ RSpec.describe "/pokemons", type: :feature do
     it 'I see the attributes of each pokemon' do
       visit '/pokemons'
 
-      # save_and_open_page
       expect(page).to have_content("Pokemon Index Page")
       expect(page).to have_content(@pokemon_1.name)
       expect(page).to have_content("Level: #{@pokemon_1.level}")
@@ -20,13 +19,20 @@ RSpec.describe "/pokemons", type: :feature do
       expect(page).to have_content("Secondary Type: #{@pokemon_1.secondary_type}")
       expect(page).to have_content("Temperment: #{@pokemon_1.temperment}")
       expect(page).to have_content("Bonded to trainer?: #{@pokemon_1.bonded_to_trainer}")
-
+      
       expect(page).to have_content(@pokemon_2.name)
       expect(page).to have_content("Level: #{@pokemon_2.level}")
       expect(page).to have_content("Primary Type: #{@pokemon_2.primary_type}")
       expect(page).to have_content("Secondary Type: #{@pokemon_2.secondary_type}")
       expect(page).to have_content("Temperment: #{@pokemon_2.temperment}")
       expect(page).to have_content("Bonded to trainer?: #{@pokemon_2.bonded_to_trainer}")
+    end
+    
+    it 'has a link at the top of the page that takes me to Poketrainer index' do
+      visit '/pokemons'
+      
+      save_and_open_page
+      expect(page).to have_link('Poketrainer Index', href: '/poketrainers')
     end
   end
 end

@@ -36,13 +36,19 @@ RSpec.describe "/poketrainers/:id", type: :feature do
     it 'displays a count of the number of pokemon associated with this poketrainer' do
       visit "/poketrainers/#{@ash_ketchum.id}"
 
-      save_and_open_page
+      # save_and_open_page
       expect(page).to have_content("Number of Pokemon caught: 3")
 
       visit "poketrainers/#{@misty.id}"
 
-      save_and_open_page
+      # save_and_open_page
       expect(page).to have_content("Number of Pokemon caught: 2")
+    end
+
+    it 'has a link at the top of the page that takes me to Poketrainer index' do
+      visit "poketrainers/#{misty.id}"
+
+      expect(page).to have_link('Poketrainer Index', href: '/poketrainers')
     end
   end
 end
