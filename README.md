@@ -32,7 +32,7 @@ When I visit '/child_table_name'
 Then I see each Child in the system including the Child's attributes
 (data from each column that is on the child table)
 
-[ ] done
+[x] done
 
 ### User Story 4, Child Show 
 
@@ -49,7 +49,8 @@ As a visitor
 When I visit '/parents/:parent_id/child_table_name'
 Then I see each Child that is associated with that Parent with each Child's attributes
 (data from each column that is on the child table)
-ActiveRecord
+
+## ActiveRecord
 
 [ ] done
 
@@ -67,7 +68,8 @@ And next to each of the records I see when it was created
 As a visitor
 When I visit a parent's show page
 I see a count of the number of children associated with this parent
-Usability
+
+## Usability
 
 [ ] done
 
