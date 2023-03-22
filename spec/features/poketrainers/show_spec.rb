@@ -34,12 +34,12 @@ RSpec.describe "/poketrainers/:id", type: :feature do
     end
 
     it 'displays a count of the number of pokemon associated with this poketrainer' do
-      visit "/poketrainers/#{@ash_ketchum}"
+      visit "/poketrainers/#{@ash_ketchum.id}"
 
       save_and_open_page
       expect(page).to have_content("Number of Pokemon caught: 3")
 
-      visit "poketrainers/#{@misty}"
+      visit "poketrainers/#{@misty.id}"
 
       save_and_open_page
       expect(page).to have_content("Number of Pokemon caught: 2")
