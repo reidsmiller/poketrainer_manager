@@ -12,7 +12,7 @@ RSpec.describe "/pokemons", type: :feature do
     it 'I see the attributes of each pokemon' do
       visit '/pokemons'
 
-      save_and_open_page
+      # save_and_open_page
       expect(page).to have_content("Pokemon Index Page")
       expect(page).to have_content(@pokemon_1.name)
       expect(page).to have_content("Level: #{@pokemon_1.level}")

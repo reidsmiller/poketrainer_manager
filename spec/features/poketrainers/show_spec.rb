@@ -8,7 +8,7 @@ RSpec.describe "/poketrainers/:id" do
 
   describe 'as a visitor, when I visit poketrainers/:id' do
     it 'I see the poketrainer with that id including the poketrainers attributes' do
-      visit '/poketrainers/1'
+      visit "/poketrainers/#{@ash_ketchum.id}"
 
       save_and_open_page
       expect(page).to have_content(@ash_ketchum.name)
@@ -16,6 +16,15 @@ RSpec.describe "/poketrainers/:id" do
       expect(page).to have_content("Hometown: #{@ash_ketchum.hometown}")
       expect(page).to have_content("Gym Badges: #{@ash_ketchum.gym_badges}")
       expect(page).to have_content("Has a bike: #{@ash_ketchum.has_bike}")
+
+      visit "/poketrainers/#{@misty.id}"
+
+      save_and_open_page
+      expect(page).to have_content(@misty.name)
+      expect(page).to have_content("Age: #{@misty.age}")
+      expect(page).to have_content("Hometown: #{@misty.hometown}")
+      expect(page).to have_content("Gym Badges: #{@misty.gym_badges}")
+      expect(page).to have_content("Has a bike: #{@misty.has_bike}")
     end
   end
 end
