@@ -12,7 +12,6 @@ RSpec.describe "/pokemons/:id", type: :feature do
     it 'I see the pokemon with that id including its attributes' do
       visit "/pokemons/#{@pokemon_1.id}"
 
-      # save_and_open_page
       expect(page).to have_content(@pokemon_1.name)
       expect(page).to have_content("Level: #{@pokemon_1.level}")
       expect(page).to have_content("Primary Type: #{@pokemon_1.primary_type}")
@@ -22,7 +21,6 @@ RSpec.describe "/pokemons/:id", type: :feature do
 
       visit "/pokemons/#{@pokemon_2.id}"
 
-      # save_and_open_page
       expect(page).to have_content(@pokemon_2.name)
       expect(page).to have_content("Level: #{@pokemon_2.level}")
       expect(page).to have_content("Primary Type: #{@pokemon_2.primary_type}")

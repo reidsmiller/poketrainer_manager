@@ -16,7 +16,6 @@ RSpec.describe "/poketrainers/:id", type: :feature do
     it 'I see the poketrainer with that id including the poketrainers attributes' do
       visit "/poketrainers/#{@ash_ketchum.id}"
 
-      # save_and_open_page
       expect(page).to have_content(@ash_ketchum.name)
       expect(page).to have_content("Age: #{@ash_ketchum.age}")
       expect(page).to have_content("Hometown: #{@ash_ketchum.hometown}")
@@ -25,7 +24,6 @@ RSpec.describe "/poketrainers/:id", type: :feature do
 
       visit "/poketrainers/#{@misty.id}"
 
-      # save_and_open_page
       expect(page).to have_content(@misty.name)
       expect(page).to have_content("Age: #{@misty.age}")
       expect(page).to have_content("Hometown: #{@misty.hometown}")
@@ -36,12 +34,10 @@ RSpec.describe "/poketrainers/:id", type: :feature do
     it 'displays a count of the number of pokemon associated with this poketrainer' do
       visit "/poketrainers/#{@ash_ketchum.id}"
 
-      # save_and_open_page
       expect(page).to have_content("Number of Pokemon caught: 3")
 
       visit "poketrainers/#{@misty.id}"
 
-      # save_and_open_page
       expect(page).to have_content("Number of Pokemon caught: 2")
     end
 
@@ -59,10 +55,10 @@ RSpec.describe "/poketrainers/:id", type: :feature do
 
     it 'has a link to poketrainer pokemon index page' do
       visit "poketrainers/#{@ash_ketchum.id}"
-      expect(page).to have_link("#{@ash_kethcum.name}'s Pokemon", href: "/poketrainers/#{@ash_ketchum.id}/pokemons")
+      expect(page).to have_link("#{@ash_ketchum.name}'s Pokemon", href: "/poketrainers/#{@ash_ketchum.id}/pokemons")
 
       visit "poketrainers/#{@misty.id}"
-      expect(page).to have_link("#{@misty.name}'s Pokemon", href: "/poketrainers/#{@ash_ketchum.id}/pokemons")
+      expect(page).to have_link("#{@misty.name}'s Pokemon", href: "/poketrainers/#{@misty.id}/pokemons")
     end
   end
 end

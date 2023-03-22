@@ -11,7 +11,6 @@ RSpec.describe "/poketrainers", type: :feature do
     it 'displayes the name of each poketrainer' do
       visit '/poketrainers'
 
-      # save_and_open_page
       expect(page).to have_content(@ash_ketchum.name)
       expect(page).to have_content(@misty.name)
       expect(page).to have_content(@brock.name)
@@ -21,7 +20,6 @@ RSpec.describe "/poketrainers", type: :feature do
       #Added different created_at timestamps in the before(:each) for each poketrainer
       visit "/poketrainers"
 
-      # save_and_open_page
       expect(@misty.name).to appear_before(@brock.name)
       expect(@misty.name).to appear_before(@ash_ketchum.name)
       expect(@brock.name).to appear_before(@ash_ketchum.name)
