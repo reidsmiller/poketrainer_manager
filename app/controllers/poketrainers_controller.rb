@@ -1,7 +1,7 @@
 class PoketrainersController < ApplicationController
 
   def index
-    @poketrainers = Poketrainer.all
+    @poketrainers = Poketrainer.order(created_at: :desc)
   end
 
   def show

@@ -15,7 +15,7 @@ RSpec.describe '/poketrainers/:id/pokemons', type: :feature do
     it 'I see each pokemon that is associated with that poketrainer and each pokemons attributes' do
       visit "/poketrainers/#{@ash_ketchum.id}/pokemons"
 
-      save_and_open_page
+      # save_and_open_page
       expect(page).to have_content("#{@ash_ketchum.name}'s Pokemon")
       expect(page).to have_content(@pokemon_1.name)
       expect(page).to have_content("Level: #{@pokemon_1.level}")
@@ -32,7 +32,7 @@ RSpec.describe '/poketrainers/:id/pokemons', type: :feature do
 
       visit "/poketrainers/#{@misty.id}/pokemons"
 
-      save_and_open_page
+      # save_and_open_page
       expect(page).to have_content("#{@misty.name}'s Pokemon")
       expect(page).to have_content(@pokemon_3.name)
       expect(page).to have_content("Level: #{@pokemon_3.level}")
