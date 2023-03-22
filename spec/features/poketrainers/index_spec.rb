@@ -18,6 +18,7 @@ RSpec.describe "/poketrainers", type: :feature do
     end
 
     it 'orders the records by most recently created' do
+      #Added different created_at timestamps in the before(:each) for each poketrainer
       visit "/poketrainers"
 
       # save_and_open_page
