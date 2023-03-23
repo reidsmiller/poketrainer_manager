@@ -35,10 +35,10 @@ RSpec.describe "/poketrainers", type: :feature do
 
     it 'has a link to create a new poketrainer record' do
       visit "/poketrainers"
-      expect(page).to have_link("New Poketrainer", href: '/poketrainer/new')
+      expect(page).to have_link("New Poketrainer", href: '/poketrainers/new')
 
       click_link('New Poketrainer')
-      expect(page).to have_current_path('/poketrainer/new')
+      expect(page).to have_current_path('/poketrainers/new')
     end
   end
 end

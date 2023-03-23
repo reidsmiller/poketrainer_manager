@@ -1,0 +1,15 @@
+<form action="/poketrainers" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <h3>Enter New Poketrainer Information:</h3>
+  <label for='name'>Name: </label><br>
+  <input type='text' id='name' name='poketrainer[name]'><br>
+  <label for='age'>Age: </label><br>
+  <input type='text' id='age' name='poketrainer[age]'><br>
+  <label for='hometown'>Hometown: </label><br>
+  <input type='text' id='hometown' name='poketrainer[hometown]'><br>
+  <label for='gym_badges'>Gym Badges: </label><br>
+  <input type='text' id='gym_badges' name='poketrainer[gym_badges]'><br>
+  <label for='has_bike'>Has a Bike?: </label><br>
+  <input type='text' id='has_bike' name='poketrainer[has_bike]'><br><br>
+  <input type='submit' value='Create Poketrainer'/>
+</form>

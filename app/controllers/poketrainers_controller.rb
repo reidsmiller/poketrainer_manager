@@ -7,4 +7,19 @@ class PoketrainersController < ApplicationController
   def show
     @poketrainer = Poketrainer.find(params[:id])
   end
+
+  def new
+  end
+
+  def create
+    poketrainer = Poketrainer.create(
+        name: params[:poketrainer][:name],
+        age: params[:poketrainer][:age],
+        hometown: params[:poketrainer][:hometown],
+        gym_badges: params[:poketrainer][:gym_badges],
+        has_bike: params[:poketrainer][:has_bike],
+      )
+    poketrainer.save
+    redirect_to '/poketrainers'
+  end
 end
