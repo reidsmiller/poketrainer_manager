@@ -1,0 +1,16 @@
+<form action='/poketrainers/<%= @poketrainer.id %>' method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH" />
+  <h3>Update Poketrainer Information: </h3>
+    <label for='name'>Name: </label><br>
+    <input type='text' id='name' name='poketrainer[name]' value='<%= @poketrainer.name %>'><br>
+    <label for='age'>Age: </label><br>
+    <input type='text' id='age' name='poketrainer[age]' value='<%= @poketrainer.age %>'><br>
+    <label for='hometown'>Hometown: </label><br>
+    <input type='text' id='hometown' name='poketrainer[hometown]' value='<%= @poketrainer.hometown %>'><br>
+    <label for='gym_badges'>Gym Badges: </label><br>
+    <input type='text' id='gym_badges' name='poketrainer[gym_badges]' value='<%= @poketrainer.gym_badges %>'><br>
+    <label for='has_bike'>Has a Bike?: </label><br>
+    <input type='text' id='has_bike' name='poketrainer[has_bike]' value='<%= @poketrainer.has_bike %>'><br><br>
+    <input type='submit' value='Update Poketrainer'/>
+  </form>

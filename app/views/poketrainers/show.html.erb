@@ -3,6 +3,7 @@
   <li><a href='/poketrainers'>Poketrainer Index</a></li>
 </ul>
 <h1><%= @poketrainer.name %></h1>
+<p><a href="/poketrainers/<%= @poketrainer.id %>/edit">Update Poketrainer</a></p>
 <p><a href="/poketrainers/<%= @poketrainer.id %>/pokemons"><%= @poketrainer.name %>'s Pokemon</a></p>
 <ul>
   <li>Age: <%= @poketrainer.age %></li>

@@ -7,7 +7,7 @@ RSpec.describe '/poketrainers/:poketrainer_id/edit', type: :feature do
     end
 
     it 'I see a form to edit Poketrainers attributes' do
-      visit "/poketrainers/#{@ash_ketchum}/edit"
+      visit "/poketrainers/#{@ash_ketchum.id}/edit"
 
       expect(page).to have_content('Update Poketrainer Information:')
       expect(page).to have_content('Name:')
@@ -24,20 +24,23 @@ RSpec.describe '/poketrainers/:poketrainer_id/edit', type: :feature do
     end
 
     it 'I can fill out Poketrainers updated attributes, submit and see the updated info' do
-      visit "/poketrainers/#{@ash_ketchum}/edit"
+      visit "/poketrainers/#{@ash_ketchum.id}/edit"
 
       fill_in 'name', with: 'Reid Miller'
+      fill_in 'age', with: 32
       fill_in 'hometown', with: 'Boulder'
       fill_in 'gym_badges', with: 8000
       fill_in 'has_bike', with: true
 
       click_button 'Update Poketrainer'
 
-      expect(page).to have_current_path("/poketrainers/#{@ash_ketchum}")
+      expect(page).to have_current_path("/poketrainers/#{@ash_ketchum.id}")
       expect(page).to have_content('Reid Miller')
+      expect(page).to have_content('Age: 32')
       expect(page).to have_content('Hometown: Boulder')
       expect(page).to have_content('Gym Badges: 8000')
       expect(page).to have_content('Has a bike: true')
+      save_and_open_page
     end
   end
 end
