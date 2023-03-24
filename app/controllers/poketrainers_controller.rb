@@ -29,7 +29,7 @@ class PoketrainersController < ApplicationController
 
   def update
     poketrainer = Poketrainer.find(params[:id])
-    Poketrainer.update(
+    poketrainer.update(
       name: params[:poketrainer][:name],
       age: params[:poketrainer][:age],
       hometown: params[:poketrainer][:hometown],

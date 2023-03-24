@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   post '/poketrainers/:id/pokemons', to: 'poketrainers/pokemons#create'
   get '/pokemons', to: 'pokemons#index'
   get '/pokemons/:id', to: 'pokemons#show'
+  get '/pokemons/:id/edit', to: 'pokemons#edit'
+  patch '/pokemons/:id', to: 'pokemons#update'
 end
