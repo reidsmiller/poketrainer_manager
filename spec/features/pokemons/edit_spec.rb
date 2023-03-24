@@ -1,15 +1,16 @@
 require 'rails_helper'
 
-RSpec.describe '/poketrainer/:id/pokemons/new', type: :feature do
-  describe 'As a visitor, when I am directed here' do
+RSpec.describe "/pokemons/:id/edit", type: :feature do
+  describe "When I visit the pokemon edit page" do
     before(:each) do
-      @ash_ketchum = Poketrainer.create!(name: "Ash Ketchum", age: 14, hometown: "Cerulean", gym_badges: 6, has_bike: false)
+      @ash = Poketrainer.create!(Poketrainer.create!(name: "Ash Ketchum", age: 10, hometown: "Pallet Town", gym_badges: 6, has_bike: false))
+      @pokemon_1 = @ash.pokemons.create!(name: 'Pikachu', level: 30, primary_type: 'Electric', secondary_type: nil, temperment: 'Angsty', bonded_to_trainer: true)
     end
 
     it 'I see a form to add a new pokemon' do
-      visit "/poketrainers/#{@ash_ketchum.id}/pokemons/new"
+      visit "/pokemons/#{@pokemon_1:id}/edit"
 
-      expect(page).to have_content("Catch New Pokemon")
+      expect(page).to have_content("Update Pokemon")
       expect(page).to have_content("Name:")
       expect(page).to have_field('name')
       expect(page).to have_content("Level:")
@@ -22,12 +23,11 @@ RSpec.describe '/poketrainer/:id/pokemons/new', type: :feature do
       expect(page).to have_field('temperment')
       expect(page).to have_content("Bonded to trainer?:")
       expect(page).to have_field('bonded_to_trainer')
-      expect(page).to have_button('Catch Pokemon')
-
+      expect(page).to have_button('Update Pokemon')
     end
 
     it 'I can fill out the form and create a new pokemon that belongs to the specified trainer' do
-      visit "/poketrainers/#{@ash_ketchum.id}/pokemons/new"
+      visit "/pokemons/#{@pokemon_1:id}/edit"
 
       fill_in 'name', with: 'Butterfree'
       fill_in 'level', with: 25
@@ -36,9 +36,9 @@ RSpec.describe '/poketrainer/:id/pokemons/new', type: :feature do
       fill_in 'temperment', with: 'Carefree'
       fill_in 'bonded_to_trainer', with: true
 
-      click_button 'Catch Pokemon'
+      click_button 'Update Pokemon'
 
-      expect(page).to have_current_path("/poketrainers/#{@ash_ketchum.id}/pokemons")
+      expect(page).to have_current_path("/pokemons/#{@pokemon_1.id}")
       expect(page).to have_content("Butterfree")
       expect(page).to have_content('Level: 25')
       expect(page).to have_content('Primary Type: Bug')
