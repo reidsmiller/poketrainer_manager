@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "/pokemons/:id/edit", type: :feature do
   describe "When I visit the pokemon edit page" do
     before(:each) do
-      @ash = Poketrainer.create!(Poketrainer.create!(name: "Ash Ketchum", age: 10, hometown: "Pallet Town", gym_badges: 6, has_bike: false))
+      @ash = Poketrainer.create!(name: "Ash Ketchum", age: 10, hometown: "Pallet Town", gym_badges: 6, has_bike: false)
       @pokemon_1 = @ash.pokemons.create!(name: 'Pikachu', level: 30, primary_type: 'Electric', secondary_type: nil, temperment: 'Angsty', bonded_to_trainer: true)
     end
 
