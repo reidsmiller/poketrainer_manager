@@ -8,7 +8,7 @@ RSpec.describe "/pokemons/:id/edit", type: :feature do
     end
 
     it 'I see a form to add a new pokemon' do
-      visit "/pokemons/#{@pokemon_1:id}/edit"
+      visit "/pokemons/#{@pokemon_1.id}/edit"
 
       expect(page).to have_content("Update Pokemon")
       expect(page).to have_content("Name:")
@@ -27,7 +27,7 @@ RSpec.describe "/pokemons/:id/edit", type: :feature do
     end
 
     it 'I can fill out the form and create a new pokemon that belongs to the specified trainer' do
-      visit "/pokemons/#{@pokemon_1:id}/edit"
+      visit "/pokemons/#{@pokemon_1.id}/edit"
 
       fill_in 'name', with: 'Butterfree'
       fill_in 'level', with: 25
