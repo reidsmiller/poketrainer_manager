@@ -10,6 +10,8 @@
     <li>Primary Type: <%= pokemon.primary_type %></li>
     <li>Secondary Type: <%= pokemon.secondary_type %></li>
     <li>Temperment: <%= pokemon.temperment %></li>
+  <% if pokemon.bonded_to_trainer %>
     <li>Bonded to trainer?: <%= pokemon.bonded_to_trainer %></li>
+  <% end %>
   </ul>
 <% end %>
