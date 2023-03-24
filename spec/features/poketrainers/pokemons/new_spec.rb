@@ -22,7 +22,8 @@ RSpec.describe '/poketrainer/:id/pokemons/new', type: :feature do
       expect(page).to have_field('temperment')
       expect(page).to have_content("Bonded to trainer?:")
       expect(page).to have_field('bonded_to_trainer')
-      expect(page).to have_link("Catch Pokemon")
+      expect(page).to have_button('Catch Pokemon')
+
     end
 
     it 'I can fill out the form and create a new pokemon that belongs to the specified trainer' do
@@ -37,13 +38,14 @@ RSpec.describe '/poketrainer/:id/pokemons/new', type: :feature do
 
       click_button 'Catch Pokemon'
 
+      save_and_open_page
       expect(page).to have_current_path("/poketrainers/#{@ash_ketchum.id}/pokemons")
       expect(page).to have_content("Butterfree")
       expect(page).to have_content('Level: 25')
       expect(page).to have_content('Primary Type: Bug')
       expect(page).to have_content('Secondary Type: Flying')
       expect(page).to have_content('Temperment: Carefree')
-      expect(page).to have_content('Bonded to Trainer?: true')
+      expect(page).to have_content('Bonded to trainer?: true')
     end
   end
 end

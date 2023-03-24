@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe '/poketrainers/:poketrainer_id/pokemons', type: :feature do
+RSpec.describe '/poketrainers/:id/pokemons', type: :feature do
   
-  describe 'as a visitor, when I visit /poketrainers/:poketrainer_id/pokemons' do
+  describe 'as a visitor, when I visit /poketrainers/:id/pokemons' do
     before(:each) do
       @ash_ketchum = Poketrainer.create!(name: "Ash Ketchum", age: 14, hometown: "Cerulean", gym_badges: 6, has_bike: false)
       @misty = Poketrainer.create!(name: "Misty", age: 13, hometown: "Somewhere", gym_badges: 5, has_bike: true) 

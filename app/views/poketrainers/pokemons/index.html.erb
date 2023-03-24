@@ -3,7 +3,7 @@
   <li><a href='/poketrainers'>Poketrainer Index</a></li>
 </ul>
 <h1><%= @poketrainer.name %>'s Pokemon</h1>
-<br>
+<p><a href="/poketrainers/<%= @poketrainer.id %>/pokemons/new">Catch Pokemon</a></p>
 <% @pokemons.each do |pokemon| %>
   <h3><%= pokemon.name %></h3>
   <ul>
