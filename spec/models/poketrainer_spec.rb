@@ -5,7 +5,6 @@ RSpec.describe Poketrainer, type: :model do
     it { should have_many :pokemons }
   end
 
-  # User Story 7
   describe 'instance methods' do
     before(:each) do
       @ash_ketchum = Poketrainer.create!(name: "Ash Ketchum", age: 14, hometown: "Cerulean", gym_badges: 6, has_bike: false)

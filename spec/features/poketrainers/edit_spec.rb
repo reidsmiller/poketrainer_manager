@@ -40,7 +40,6 @@ RSpec.describe '/poketrainers/:poketrainer_id/edit', type: :feature do
       expect(page).to have_content('Hometown: Boulder')
       expect(page).to have_content('Gym Badges: 8000')
       expect(page).to have_content('Has a bike: true')
-      save_and_open_page
     end
   end
 end
