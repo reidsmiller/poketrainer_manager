@@ -44,5 +44,17 @@ RSpec.describe "/pokemons", type: :feature do
       expect(page).to have_content("Bonded to trainer?: #{@pokemon_1.bonded_to_trainer}")
       expect(page).to have_no_content("Bonded to trainer?: #{@pokemon_2.bonded_to_trainer}")
     end
+
+    it 'I see a link next to each pokemon to edit its info' do
+      visit "/pokemons"
+      expect(page).to have_link("Edit #{@pokemon_1.name}", href: "/pokemons/#{@pokemon_1.id}/edit")
+      click_link "Edit #{@pokemon_1.name}"
+      expect(current_path).to eq("/pokemons/#{@pokemon_1.id}/edit")
+
+      visit "/pokemons"
+      expect(page).to have_link("Edit #{@pokemon_2.name}", href: "/pokemons/#{@pokemon_2.id}/edit")
+      click_link "Edit #{@pokemon_2.name}"
+      expect(current_path).to eq("/pokemons/#{@pokemon_2.id}/edit")
+    end
   end
 end
