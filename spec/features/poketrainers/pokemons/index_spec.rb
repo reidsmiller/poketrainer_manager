@@ -74,11 +74,11 @@ RSpec.describe '/poketrainers/:id/pokemons', type: :feature do
 
     it 'has a link to sort children in alphabetical order' do
       visit "/poketrainers/#{@ash_ketchum.id}/pokemons"
-      expect(page).to have_link('Sort Alphabetically', href: "/poketrainers/#{@ash_ketchum.id}/pokemons/sort")
+      expect(page).to have_link('Sort Alphabetically', href: false)
 
       click_link('Sort Alphabetically')
       
-      expect(page).to have_current_path("/poketrainers/#{@ash_ketchum.id}/pokemons")
+      expect(page).to have_current_path("/poketrainers/#{@ash_ketchum.id}/pokemons?sort_by=name_asc")
       expect(@pokemon_5.name).to appear_before(@pokemon_2.name)
       expect(@pokemon_5.name).to appear_before(@pokemon_1.name)
       expect(@pokemon_2.name).to appear_before(@pokemon_1.name)

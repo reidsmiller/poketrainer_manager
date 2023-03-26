@@ -168,7 +168,7 @@ As a visitor
 When I visit the child index
 Then I only see records where the boolean column is `true`
 
-[ ] done
+[x] done
 
 ### User Story 16, Sort Parent's Children in Alphabetical Order by name 
 

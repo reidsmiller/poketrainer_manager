@@ -5,7 +5,7 @@
 <h1><%= @poketrainer.name %>'s Pokemon</h1>
 
 <%= link_to 'Catch Pokemon', "/poketrainers/#{@poketrainer.id}/pokemons/new" %>
-<%= link_to 'Sort Alphabetically', "/poketrainers/#{@poketrainer.id}/pokemons/sort" %>
+<%= link_to 'Sort Alphabetically', { sort_by: "name_asc" } %>
 
 <% @pokemons.each do |pokemon| %>
   <h3><%= pokemon.name %></h3>

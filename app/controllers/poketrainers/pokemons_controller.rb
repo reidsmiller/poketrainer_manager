@@ -1,7 +1,11 @@
 class Poketrainers::PokemonsController < ApplicationController
   def index
     @poketrainer = Poketrainer.find(params[:id])
-    @pokemons = @poketrainer.pokemons
+    if params[:sort_by] == "name_asc"
+      @pokemons = @poketrainer.pokemons.order(name: :asc)
+    else
+      @pokemons = @poketrainer.pokemons
+    end
   end
 
   def new
@@ -12,11 +16,6 @@ class Poketrainers::PokemonsController < ApplicationController
     poketrainer = Poketrainer.find(params[:id])
     pokemon = poketrainer.pokemons.create(pokemon_params)
     redirect_to "/poketrainers/#{params[:id]}/pokemons"
-  end
-
-  def sort
-    poketrainer = Poketrainer.find(params[:id])
-    pokemons = poketrainer.pokemons.order(:name)
   end
 
   private
