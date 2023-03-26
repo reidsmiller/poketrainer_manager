@@ -81,9 +81,10 @@ RSpec.describe "/poketrainers/:id", type: :feature do
 
     it 'I see a link to delete poketrainer and all their pokemon' do
       visit "poketrainers/#{@ash_ketchum.id}"
-      expect(page).to have_link('Delete Poketrainer', href:"/poketrainers/#{@ash_ketchum.id}/delete")
+      expect(page).to have_link('Delete Poketrainer', href:"/poketrainers/#{@ash_ketchum.id}")
 
       click_link('Delete Poketrainer')
+      expect(current_path).to eq('/poketrainers')
       expect(page).to have_no_content(@ash_ketchum.name)
       expect(page).to have_no_content("Age: #{@ash_ketchum.age}")
       expect(page).to have_no_content("Hometown: #{@ash_ketchum.hometown}")
@@ -91,6 +92,7 @@ RSpec.describe "/poketrainers/:id", type: :feature do
       expect(page).to have_no_content("Has a bike: #{@ash_ketchum.has_bike}")
 
       visit '/pokemons'
+      save_and_open_page
       expect(page).to have_no_content(@pokemon_1.name)
       expect(page).to have_no_content(@pokemon_1.level)
       expect(page).to have_no_content(@pokemon_2.name)

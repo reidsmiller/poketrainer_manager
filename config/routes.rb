@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/poketrainers/:id', to: 'poketrainers#show'
   get '/poketrainers/:id/edit', to: 'poketrainers#edit'
   patch '/poketrainers/:id', to: 'poketrainers#update'
+  delete '/poketrainers/:id', to: 'poketrainers#destroy'
   get '/poketrainers/:id/pokemons', to: 'poketrainers/pokemons#index'
   get '/poketrainers/:id/pokemons/new', to: 'poketrainers/pokemons#new'
   post '/poketrainers/:id/pokemons', to: 'poketrainers/pokemons#create'
