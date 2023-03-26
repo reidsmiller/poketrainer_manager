@@ -52,5 +52,20 @@ RSpec.describe "/pokemons/:id", type: :feature do
       click_link('Update Pokemon')
       expect(page).to have_current_path("/pokemons/#{@pokemon_2.id}/edit")
     end
+
+    it 'I see a link to delete pokemon' do
+      visit "pokemons/#{@pokemon_1.id}"
+      expect(page).to have_link('Delete Pokemon', href:"/pokemons/#{@pokemon_1.id}")
+
+      click_link('Delete Pokemon')
+      expect(current_path).to eq('/pokemons')
+      save_and_open_page
+      expect(page).to have_no_content(@pokemon_1.name)
+      expect(page).to have_no_content("Level: #{@pokemon_1.level}")
+      expect(page).to have_no_content("Primary Type: #{@pokemon_1.primary_type}")
+      expect(page).to have_no_content("Secondary Type: #{@pokemon_1.secondary_type}")
+      expect(page).to have_no_content("Temperment: #{@pokemon_1.temperment}")
+      expect(page).to have_no_content("Bonded to trainer?: #{@pokemon_1.bonded_to_trainer}")
+    end
   end
 end

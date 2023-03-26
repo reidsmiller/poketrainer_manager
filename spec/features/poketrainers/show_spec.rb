@@ -92,7 +92,6 @@ RSpec.describe "/poketrainers/:id", type: :feature do
       expect(page).to have_no_content("Has a bike: #{@ash_ketchum.has_bike}")
 
       visit '/pokemons'
-      save_and_open_page
       expect(page).to have_no_content(@pokemon_1.name)
       expect(page).to have_no_content(@pokemon_1.level)
       expect(page).to have_no_content(@pokemon_2.name)
