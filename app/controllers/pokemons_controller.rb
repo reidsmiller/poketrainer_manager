@@ -13,15 +13,12 @@ class PokemonsController < ApplicationController
 
   def update
     pokemon = Pokemon.find(params[:id])
-    pokemon.update(
-      name: params[:pokemon][:name],
-      level: params[:pokemon][:level],
-      primary_type: params[:pokemon][:primary_type],
-      secondary_type: params[:pokemon][:secondary_type],
-      temperment: params[:pokemon][:temperment],
-      bonded_to_trainer: params[:pokemon][:bonded_to_trainer]
-    )
-    pokemon.save
+    pokemon.update(pokemon_params)
     redirect_to "/pokemons/#{pokemon.id}"
+  end
+
+  private
+  def pokemon_params
+    params.permit(:name, :level, :primary_type, :secondary_type, :temperment, :bonded_to_trainer)
   end
 end

@@ -1,4 +1,8 @@
+<%= link_to 'Poketrainer Index', '/poketrainers' %>
+<%= link_to 'Pokemon Index', '/pokemons' %>
+
 <h3>Enter New Poketrainer Information: </h3>
+
 <%= form_with url: "/poketrainers", method: :post, local: true do |form| %>
   <%= form.label :name %>
   <%= form.text_field :name %>

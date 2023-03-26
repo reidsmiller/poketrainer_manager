@@ -41,5 +41,21 @@ RSpec.describe '/poketrainers/:poketrainer_id/edit', type: :feature do
       expect(page).to have_content('Gym Badges: 8000')
       expect(page).to have_content('Has a bike: true')
     end
+
+    it 'has a link at the top of the page that takes me to Pokemon index' do
+      visit "/poketrainers/#{@ash_ketchum.id}/edit"
+      expect(page).to have_link('Pokemon Index', href: '/pokemons')
+
+      click_link('Pokemon Index')
+      expect(page).to have_current_path('/pokemons')
+    end
+
+    it 'has a link at the top of the page that takes me to Poketrainer index' do
+      visit "poketrainers/#{@ash_ketchum.id}/edit"
+      expect(page).to have_link('Poketrainer Index', href: '/poketrainers')
+
+      click_link('Poketrainer Index')
+      expect(page).to have_current_path('/poketrainers')
+    end
   end
 end
