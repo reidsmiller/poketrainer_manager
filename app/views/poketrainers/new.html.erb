@@ -1,0 +1,18 @@
+<%= link_to 'Poketrainer Index', '/poketrainers' %>
+<%= link_to 'Pokemon Index', '/pokemons' %>
+
+<h3>Enter New Poketrainer Information: </h3>
+
+<%= form_with url: "/poketrainers", method: :post, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :age %>
+  <%= form.text_field :age %>
+  <%= form.label :hometown %>
+  <%= form.text_field :hometown %>
+  <%= form.label :gym_badges %>
+  <%= form.text_field :gym_badges %>
+  <%= form.label :has_bike %>
+  <%= form.text_field :has_bike %>
+  <%= form.submit 'Create Poketrainer' %>
+<% end %>

@@ -99,7 +99,7 @@ Then I see a link to take me to that parent's `child_table_name` page ('/parents
 
 ## CRUD
 
-[ ] done
+[x] done
 
 ### User Story 11, Parent Creation 
 
@@ -114,7 +114,7 @@ Then a `POST` request is sent to the '/parents' route,
 a new parent record is created,
 and I am redirected to the Parent Index page where I see the new Parent displayed.
 
-[ ] done
+[x] done
 
 ### User Story 12, Parent Update 
 
@@ -129,7 +129,7 @@ Then a `PATCH` request is sent to '/parents/:id',
 the parent's info is updated,
 and I am redirected to the Parent's Show page where I see the parent's updated info
 
-[ ] done
+[x] done
 
 ### User Story 13, Parent Child Creation 
 
@@ -144,7 +144,7 @@ Then a `POST` request is sent to '/parents/:parent_id/child_table_name',
 a new child object/row is created for that parent,
 and I am redirected to the Parent Childs Index page where I can see the new child listed
 
-[ ] done
+[x] done
 
 ### User Story 14, Child Update 
 
@@ -160,7 +160,7 @@ and I am redirected to the Child Show page where I see the Child's updated infor
 
 ## ActiveRecord
 
-[ ] done
+[x] done
 
 ### User Story 15, Child Index only shows `true` Records 
 
@@ -168,7 +168,7 @@ As a visitor
 When I visit the child index
 Then I only see records where the boolean column is `true`
 
-[ ] done
+[x] done
 
 ### User Story 16, Sort Parent's Children in Alphabetical Order by name 
 
@@ -180,7 +180,7 @@ I'm taken back to the Parent's children Index Page where I see all of the parent
 
 ## Usability
 
-[ ] done
+[x] done
 
 ### User Story 17, Parent Update From Parent Index Page 
 

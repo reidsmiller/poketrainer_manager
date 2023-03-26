@@ -1,8 +1,10 @@
-<ul>
-  <li><a href='/pokemons'>Pokemon Index</a></li>
-</ul>
+<%= link_to 'Pokemon Index', '/pokemons' %>
+
 <h1>Poketrainer Index Page</h1>
-<br>
+
+<%= link_to 'New Poketrainer', '/poketrainers/new' %>
+
 <% @poketrainers.each do |poketrainer| %>
-  <h3><%= poketrainer.name %><h3>
+  <h2><%= poketrainer.name %></h2>
+  <%= link_to "Edit #{poketrainer.name}", "/poketrainers/#{poketrainer.id}/edit" %>
 <% end %>

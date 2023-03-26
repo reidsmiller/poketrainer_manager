@@ -1,0 +1,20 @@
+<%= link_to 'Poketrainer Index', '/poketrainers' %>
+<%= link_to 'Pokemon Index', '/pokemons' %>
+
+<h3>Update Pokemon Information</h3>
+
+<%= form_with url: "/pokemons/#{@pokemon.id}", method: :patch, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :level %>
+  <%= form.text_field :level %>
+  <%= form.label :primary_type %>
+  <%= form.text_field :primary_type %>
+  <%= form.label :secondary_type %>
+  <%= form.text_field :secondary_type %>
+  <%= form.label :temperment %>
+  <%= form.text_field :temperment %>
+  <%= form.label :bonded_to_trainer %>
+  <%= form.text_field :bonded_to_trainer %>
+  <%= form.submit 'Update Pokemon' %>
+<% end %>

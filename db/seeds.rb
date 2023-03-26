@@ -9,9 +9,9 @@
 Poketrainer.destroy_all
 Pokemon.destroy_all
 
-@ash = Poketrainer.create(name: "Ash Ketchum", age: 14, hometown: "Cerulean", gym_badges: 6, has_bike: false)
-@misty = Poketrainer.create(name: "Misty", age: 13, hometown: "Somewhere", gym_badges: 5, has_bike: true)
-@brock = Poketrainer.create(name: "Brock", age: 15, hometown: "Somewhere", gym_badges: 6, has_bike: true, created_at: 1.day.ago)
+@ash = Poketrainer.create(name: "Ash Ketchum", age: 10, hometown: "Pallet Town", gym_badges: 6, has_bike: false)
+@misty = Poketrainer.create(name: "Misty", age: 10, hometown: "Cerulean City", gym_badges: 5, has_bike: true)
+@brock = Poketrainer.create(name: "Brock", age: 15, hometown: "Pewter City", gym_badges: 6, has_bike: true)
 
 @ash.pokemons.create(name: 'Pikachu', level: 30, primary_type: 'Electric', secondary_type: 'None', temperment: 'Angsty', bonded_to_trainer: true)
 @ash.pokemons.create(name: 'Charizard', level: 40, primary_type: 'Fire', secondary_type: 'Flying', temperment: 'Independent', bonded_to_trainer: false)

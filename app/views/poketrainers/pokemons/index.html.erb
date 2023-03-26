@@ -1,9 +1,12 @@
-<ul>
-  <li><a href='/pokemons'>Pokemon Index</a></li>
-  <li><a href='/poketrainers'>Poketrainer Index</a></li>
-</ul>
+
+<%= link_to 'Poketrainer Index', '/poketrainers' %>
+<%= link_to 'Pokemon Index', '/pokemons' %>
+
 <h1><%= @poketrainer.name %>'s Pokemon</h1>
-<br>
+
+<%= link_to 'Catch Pokemon', "/poketrainers/#{@poketrainer.id}/pokemons/new" %>
+<%= link_to 'Sort Alphabetically', { sort_by: "name_asc" } %>
+
 <% @pokemons.each do |pokemon| %>
   <h3><%= pokemon.name %></h3>
   <ul>
@@ -13,4 +16,5 @@
     <li>Temperment: <%= pokemon.temperment %></li>
     <li>Bonded to trainer?: <%= pokemon.bonded_to_trainer %></li>
   </ul>
+  <%= link_to "Edit #{pokemon.name}", "/pokemons/#{pokemon.id}/edit" %>
 <% end %>

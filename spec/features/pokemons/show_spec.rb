@@ -31,22 +31,26 @@ RSpec.describe "/pokemons/:id", type: :feature do
 
     it 'has a link at the top of the page that takes me to Pokemon index' do
       visit "/pokemons/#{@pokemon_2.id}"
-      
       expect(page).to have_link('Pokemon Index', href: '/pokemons')
 
       click_link('Pokemon Index')
-
       expect(page).to have_current_path('/pokemons')
     end
 
     it 'has a link at the top of the page that takes me to Poketrainer index' do
       visit "/pokemons/#{@pokemon_2.id}"
-
       expect(page).to have_link('Poketrainer Index', href: '/poketrainers')
 
       click_link('Poketrainer Index')
-
       expect(page).to have_current_path('/poketrainers')
+    end
+
+    it 'has a link to update Pokemon' do
+      visit "/pokemons/#{@pokemon_2.id}"
+      expect(page).to have_link('Update Pokemon', href: "/pokemons/#{@pokemon_2.id}/edit")
+
+      click_link('Update Pokemon')
+      expect(page).to have_current_path("/pokemons/#{@pokemon_2.id}/edit")
     end
   end
 end

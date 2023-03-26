@@ -18,14 +18,14 @@ RSpec.describe "/pokemons", type: :feature do
       expect(page).to have_content("Primary Type: #{@pokemon_1.primary_type}")
       expect(page).to have_content("Secondary Type: #{@pokemon_1.secondary_type}")
       expect(page).to have_content("Temperment: #{@pokemon_1.temperment}")
-      expect(page).to have_content("Bonded to trainer?: #{@pokemon_1.bonded_to_trainer}")
+      # expect(page).to have_content("Bonded to trainer?: #{@pokemon_1.bonded_to_trainer}")
       
       expect(page).to have_content(@pokemon_2.name)
       expect(page).to have_content("Level: #{@pokemon_2.level}")
       expect(page).to have_content("Primary Type: #{@pokemon_2.primary_type}")
       expect(page).to have_content("Secondary Type: #{@pokemon_2.secondary_type}")
       expect(page).to have_content("Temperment: #{@pokemon_2.temperment}")
-      expect(page).to have_content("Bonded to trainer?: #{@pokemon_2.bonded_to_trainer}")
+      # expect(page).to have_content("Bonded to trainer?: #{@pokemon_2.bonded_to_trainer}")
     end
     
     it 'has a link at the top of the page that takes me to Poketrainer index' do
@@ -36,6 +36,25 @@ RSpec.describe "/pokemons", type: :feature do
       click_link('Poketrainer Index')
 
       expect(page).to have_current_path('/poketrainers')
+    end
+
+    it 'only shows boolean columns when true' do
+      visit '/pokemons'
+
+      expect(page).to have_content("Bonded to trainer?: #{@pokemon_1.bonded_to_trainer}")
+      expect(page).to have_no_content("Bonded to trainer?: #{@pokemon_2.bonded_to_trainer}")
+    end
+
+    it 'I see a link next to each pokemon to edit its info' do
+      visit "/pokemons"
+      expect(page).to have_link("Edit #{@pokemon_1.name}", href: "/pokemons/#{@pokemon_1.id}/edit")
+      click_link "Edit #{@pokemon_1.name}"
+      expect(current_path).to eq("/pokemons/#{@pokemon_1.id}/edit")
+
+      visit "/pokemons"
+      expect(page).to have_link("Edit #{@pokemon_2.name}", href: "/pokemons/#{@pokemon_2.id}/edit")
+      click_link "Edit #{@pokemon_2.name}"
+      expect(current_path).to eq("/pokemons/#{@pokemon_2.id}/edit")
     end
   end
 end

@@ -1,6 +1,5 @@
-<ul>
-  <li><a href='/poketrainers'>Poketrainer Index</a></li>
-</ul>
+<%= link_to 'Poketrainer Index', '/poketrainers' %>
+
 <h1>Pokemon Index Page</h1>
 <br>
 <% @pokemons.each do |pokemon| %>
@@ -10,6 +9,9 @@
     <li>Primary Type: <%= pokemon.primary_type %></li>
     <li>Secondary Type: <%= pokemon.secondary_type %></li>
     <li>Temperment: <%= pokemon.temperment %></li>
+  <% if pokemon.bonded_to_trainer %>
     <li>Bonded to trainer?: <%= pokemon.bonded_to_trainer %></li>
+  <% end %>
   </ul>
+  <%= link_to "Edit #{pokemon.name}", "/pokemons/#{pokemon.id}/edit" %>
 <% end %>
