@@ -1,10 +1,12 @@
-<ul>
-  <li><a href='/pokemons'>Pokemon Index</a></li>
-  <li><a href='/poketrainers'>Poketrainer Index</a></li>
-</ul>
+
+<%= link_to 'Poketrainer Index', '/poketrainers' %>
+<%= link_to 'Pokemon Index', '/pokemons' %>
+
 <h1><%= @poketrainer.name %>'s Pokemon</h1>
-<p><a href="/poketrainers/<%= @poketrainer.id %>/pokemons/new">Catch Pokemon</a></p>
-<p><a href="/poketrainers/<%= @poketrainer.id %>/pokemons/sort">Sort Alphabetically</a></p>
+
+<%= link_to 'Catch Pokemon', "/poketrainers/#{@poketrainer.id}/pokemons/new" %>
+<%= link_to 'Sort Alphabetically', "/poketrainers/#{@poketrainer.id}/pokemons/sort" %>
+
 <% @pokemons.each do |pokemon| %>
   <h3><%= pokemon.name %></h3>
   <ul>

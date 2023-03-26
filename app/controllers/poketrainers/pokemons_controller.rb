@@ -10,20 +10,17 @@ class Poketrainers::PokemonsController < ApplicationController
 
   def create
     poketrainer = Poketrainer.find(params[:id])
-    pokemon = poketrainer.pokemons.create(
-        name: params[:pokemon][:name],
-        level: params[:pokemon][:level],
-        primary_type: params[:pokemon][:primary_type],
-        secondary_type: params[:pokemon][:secondary_type],
-        temperment: params[:pokemon][:temperment],
-        bonded_to_trainer: params[:pokemon][:bonded_to_trainer]
-      )
-    pokemon.save
+    pokemon = poketrainer.pokemons.create(pokemon_params)
     redirect_to "/poketrainers/#{params[:id]}/pokemons"
   end
 
   def sort
     poketrainer = Poketrainer.find(params[:id])
     pokemons = poketrainer.pokemons.order(:name)
+  end
+
+  private
+  def pokemon_params
+    params.permit(:name, :level, :primary_type, :secondary_type, :temperment, :bonded_to_trainer)
   end
 end

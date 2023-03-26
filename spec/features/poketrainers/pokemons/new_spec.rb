@@ -10,17 +10,17 @@ RSpec.describe '/poketrainer/:id/pokemons/new', type: :feature do
       visit "/poketrainers/#{@ash_ketchum.id}/pokemons/new"
 
       expect(page).to have_content("Catch New Pokemon")
-      expect(page).to have_content("Name:")
+      expect(page).to have_content("Name")
       expect(page).to have_field('name')
-      expect(page).to have_content("Level:")
+      expect(page).to have_content("Level")
       expect(page).to have_field('level')
-      expect(page).to have_content("Primary Type:")
+      expect(page).to have_content("Primary type")
       expect(page).to have_field('primary_type')
-      expect(page).to have_content("Secondary Type:")
+      expect(page).to have_content("Secondary type")
       expect(page).to have_field('secondary_type')
-      expect(page).to have_content("Temperment:")
+      expect(page).to have_content("Temperment")
       expect(page).to have_field('temperment')
-      expect(page).to have_content("Bonded to trainer?:")
+      expect(page).to have_content("Bonded to trainer")
       expect(page).to have_field('bonded_to_trainer')
       expect(page).to have_button('Catch Pokemon')
 
@@ -45,6 +45,22 @@ RSpec.describe '/poketrainer/:id/pokemons/new', type: :feature do
       expect(page).to have_content('Secondary Type: Flying')
       expect(page).to have_content('Temperment: Carefree')
       expect(page).to have_content('Bonded to trainer?: true')
+    end
+
+    it 'has a link at the top of the page that takes me to Poketrainer index' do
+      visit "/poketrainers/#{@ash_ketchum.id}/pokemons/new"
+      expect(page).to have_link('Poketrainer Index', href: '/poketrainers')
+
+      click_link('Poketrainer Index')
+      expect(page).to have_current_path('/poketrainers')
+    end
+
+    it 'has a link at the top of the page that takes me to Pokemon index' do
+      visit "/poketrainers/#{@ash_ketchum.id}/pokemons"
+      expect(page).to have_link('Pokemon Index', href: '/pokemons')
+
+      click_link('Pokemon Index')
+      expect(page).to have_current_path('/pokemons')
     end
   end
 end

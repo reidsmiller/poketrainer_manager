@@ -1,17 +1,20 @@
-<form action="/poketrainers/<%= @poketrainer.id %>/pokemons" method='post'>
-  <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
-  <h3>Catch New Pokemon</h3>
-    <label for='name'>Name: </label><br>
-    <input type='text' id='name' name='pokemon[name]'><br>
-    <label for='level'>Level: </label><br>
-    <input type='text' id='level' name='pokemon[level]'><br>
-    <label for='primary_type'>Primary Type: </label><br>
-    <input type='text' id='primary_type' name='pokemon[primary_type]'><br>
-    <label for='secondary_type'>Secondary Type: </label><br>
-    <input type='text' id='secondary_type' name='pokemon[secondary_type]'><br>
-    <label for='temperment'>Temperment: </label><br>
-    <input type='text' id='temperment' name='pokemon[temperment]'><br>
-    <label for='bonded_to_trainer'>Bonded to trainer?: </label><br>
-    <input type='text' id='bonded_to_trainer' name='pokemon[bonded_to_trainer]'><br><br>
-  <input type='submit' value='Catch Pokemon'/>
-</form>
+<%= link_to 'Poketrainer Index', '/poketrainers' %>
+<%= link_to 'Pokemon Index', '/pokemons' %>
+
+<h3>Catch New Pokemon</h3>
+
+<%= form_with url: "/poketrainers/#{@poketrainer.id}/pokemons", method: :post, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :level %>
+  <%= form.text_field :level %>
+  <%= form.label :primary_type %>
+  <%= form.text_field :primary_type %>
+  <%= form.label :secondary_type %>
+  <%= form.text_field :secondary_type %>
+  <%= form.label :temperment %>
+  <%= form.text_field :temperment %>
+  <%= form.label :bonded_to_trainer %>
+  <%= form.text_field :bonded_to_trainer %>
+  <%= form.submit 'Catch Pokemon' %>
+<% end %>
