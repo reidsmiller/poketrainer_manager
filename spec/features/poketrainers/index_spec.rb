@@ -40,5 +40,19 @@ RSpec.describe "/poketrainers", type: :feature do
       click_link('New Poketrainer')
       expect(page).to have_current_path('/poketrainers/new')
     end
+
+    it 'I can see a link next to every poketrainer to edit its info' do
+      visit "/poketrainers"
+      expect(page).to have_link('Edit Poketrainer', href: "/poketrainers/#{@ash_ketchum}/edit")
+      expect(current_path).to eq("/poketrainers/#{@ash_ketchum}/edit")
+
+      visit "/poketrainers"
+      expect(page).to have_link('Edit Poketrainer', href: "/poketrainers/#{@misty}/edit")
+      expect(current_path).to eq("/poketrainers/#{@misty}/edit")
+
+      visit "/poketrainers"
+      expect(page).to have_link('Edit Poketrainer', href: "/poketrainers/#{@brock}/edit")
+      expect(current_path).to eq("/poketrainers/#{@brock}/edit")
+    end
   end
 end
