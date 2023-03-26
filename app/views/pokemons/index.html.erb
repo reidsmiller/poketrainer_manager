@@ -13,4 +13,5 @@
     <li>Bonded to trainer?: <%= pokemon.bonded_to_trainer %></li>
   <% end %>
   </ul>
+  <%= link_to "Edit #{pokemon.name}", "/pokemons/#{pokemon.id}/edit" %>
 <% end %>

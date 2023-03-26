@@ -85,17 +85,17 @@ RSpec.describe '/poketrainers/:id/pokemons', type: :feature do
     end
 
     it 'I see a link next to each pokemon to edit its info' do
-      visit "/poketrainers/#{@ash_ketchum}/pokemons"
+      visit "/poketrainers/#{@ash_ketchum.id}/pokemons"
       expect(page).to have_link("Edit #{@pokemon_1.name}", href: "/pokemons/#{@pokemon_1.id}/edit")
       click_link "Edit #{@pokemon_1.name}"
       expect(current_path).to eq("/pokemons/#{@pokemon_1.id}/edit")
 
-      visit "/poketrainers/#{@ash_ketchum}/pokemons"
+      visit "/poketrainers/#{@ash_ketchum.id}/pokemons"
       expect(page).to have_link("Edit #{@pokemon_2.name}", href: "/pokemons/#{@pokemon_2.id}/edit")
       click_link "Edit #{@pokemon_2.name}"
       expect(current_path).to eq("/pokemons/#{@pokemon_2.id}/edit")
 
-      visit "/poketrainers/#{@ash_ketchum}/pokemons"
+      visit "/poketrainers/#{@ash_ketchum.id}/pokemons"
       expect(page).to have_link("Edit #{@pokemon_5.name}", href: "/pokemons/#{@pokemon_5.id}/edit")
       click_link "Edit #{@pokemon_5.name}"
       expect(current_path).to eq("/pokemons/#{@pokemon_5.id}/edit")

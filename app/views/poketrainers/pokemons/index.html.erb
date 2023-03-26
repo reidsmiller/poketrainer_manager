@@ -16,4 +16,5 @@
     <li>Temperment: <%= pokemon.temperment %></li>
     <li>Bonded to trainer?: <%= pokemon.bonded_to_trainer %></li>
   </ul>
+  <%= link_to "Edit #{pokemon.name}", "/pokemons/#{pokemon.id}/edit" %>
 <% end %>
