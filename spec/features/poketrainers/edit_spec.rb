@@ -10,15 +10,15 @@ RSpec.describe '/poketrainers/:poketrainer_id/edit', type: :feature do
       visit "/poketrainers/#{@ash_ketchum.id}/edit"
 
       expect(page).to have_content('Update Poketrainer Information:')
-      expect(page).to have_content('Name:')
+      expect(page).to have_content('Name')
       expect(page).to have_field('name')
-      expect(page).to have_content('Age:')
+      expect(page).to have_content('Age')
       expect(page).to have_field('age')
-      expect(page).to have_content('Hometown:')
+      expect(page).to have_content('Hometown')
       expect(page).to have_field('hometown')
-      expect(page).to have_content('Gym Badges:')
+      expect(page).to have_content('Gym badges')
       expect(page).to have_field('gym_badges')
-      expect(page).to have_content('Has a Bike?:')
+      expect(page).to have_content('Has bike')
       expect(page).to have_field('has_bike')
       expect(page).to have_button('Update Poketrainer')
     end

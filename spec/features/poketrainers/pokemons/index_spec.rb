@@ -11,6 +11,7 @@ RSpec.describe '/poketrainers/:id/pokemons', type: :feature do
       @pokemon_2 = @ash_ketchum.pokemons.create!(name: 'Lugia', level: 100, primary_type: 'Flying', secondary_type: 'Psychic', temperment: 'Enlightened', bonded_to_trainer: false)
       @pokemon_3 = @misty.pokemons.create!(name: 'Staryu', level: 28, primary_type: 'Water', secondary_type: 'None', temperment: 'Flippant', bonded_to_trainer: true)
       @pokemon_4 = @misty.pokemons.create!(name: 'Psyduck', level: 20, primary_type: 'Water', secondary_type: 'Psychic', temperment: 'Confused', bonded_to_trainer: true)
+      @pokemon_5 = @ash_ketchum.pokemons.create!(name: 'Bulbasaur', level: 15, primary_type: 'Grass', secondary_type: 'None', temperment: 'Sweet', bonded_to_trainer: true)
     end
 
     it 'I see each pokemon that is associated with that poketrainer and each pokemons attributes' do
@@ -73,6 +74,18 @@ RSpec.describe '/poketrainers/:id/pokemons', type: :feature do
 
       click_link('Catch Pokemon')
       expect(page).to have_current_path("/poketrainers/#{@ash_ketchum.id}/pokemons/new")
+    end
+
+    it 'has a link to sort children in alphabetical order' do
+      visit "/poketrainers/#{@ash_ketchum.id}/pokemons"
+      expect(page).to have_link('Sort Alphabetically', href: "/poketrainers/#{@ash_ketchum.id}/pokemons/sort")
+
+      click_link('Sort Alphabetically')
+      
+      expect(page).to have_current_path("/poketrainers/#{@ash_ketchum.id}/pokemons")
+      expect(@pokemon_5.name).to appear_before(@pokemon_2.name)
+      expect(@pokemon_5.name).to appear_before(@pokemon_1.name)
+      expect(@pokemon_2.name).to appear_before(@pokemon_1.name)
     end
   end
 end

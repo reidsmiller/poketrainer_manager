@@ -160,7 +160,7 @@ and I am redirected to the Child Show page where I see the Child's updated infor
 
 ## ActiveRecord
 
-[ ] done
+[x] done
 
 ### User Story 15, Child Index only shows `true` Records 
 

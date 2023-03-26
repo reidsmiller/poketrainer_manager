@@ -1,10 +1,11 @@
-<ul>
-  <li><a href='/pokemons'>Pokemon Index</a></li>
-  <li><a href='/poketrainers'>Poketrainer Index</a></li>
-</ul>
+<%= link_to 'Pokemon Index', '/pokemons' %>
+<%= link_to 'Poketrainer Index', '/poketrainers' %>
+
 <h1><%= @poketrainer.name %></h1>
-<p><a href="/poketrainers/<%= @poketrainer.id %>/edit">Update Poketrainer</a></p>
-<p><a href="/poketrainers/<%= @poketrainer.id %>/pokemons"><%= @poketrainer.name %>'s Pokemon</a></p>
+
+<%= link_to 'Update Poketrainer', "/poketrainers/#{@poketrainer.id}/edit" %>
+<%= link_to "#{@poketrainer.name}'s Pokemon", "/poketrainers/#{@poketrainer.id}/pokemons" %>
+
 <ul>
   <li>Age: <%= @poketrainer.age %></li>
   <li>Hometown: <%= @poketrainer.hometown %></li>

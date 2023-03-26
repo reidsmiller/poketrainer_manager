@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/poketrainers/:id/pokemons', to: 'poketrainers/pokemons#index'
   get '/poketrainers/:id/pokemons/new', to: 'poketrainers/pokemons#new'
   post '/poketrainers/:id/pokemons', to: 'poketrainers/pokemons#create'
+  get '/poketrainers/:id/pokemons/sort', to: 'poketrainers/pokemons#sort'
   get '/pokemons', to: 'pokemons#index'
   get '/pokemons/:id', to: 'pokemons#show'
   get '/pokemons/:id/edit', to: 'pokemons#edit'

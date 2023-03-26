@@ -21,4 +21,9 @@ class Poketrainers::PokemonsController < ApplicationController
     pokemon.save
     redirect_to "/poketrainers/#{params[:id]}/pokemons"
   end
+
+  def sort
+    poketrainer = Poketrainer.find(params[:id])
+    pokemons = poketrainer.pokemons.order(:name)
+  end
 end
