@@ -13,5 +13,6 @@
     <li>Bonded to trainer?: <%= pokemon.bonded_to_trainer %></li>
   <% end %>
   </ul>
-  <%= link_to "Edit #{pokemon.name}", "/pokemons/#{pokemon.id}/edit" %>
+  <%= button_to "Edit #{pokemon.name}", "/pokemons/#{pokemon.id}/edit", method: :get %>
+  <%= button_to "Delete #{pokemon.name}", "/pokemons/#{pokemon.id}", method: :delete %>
 <% end %>
