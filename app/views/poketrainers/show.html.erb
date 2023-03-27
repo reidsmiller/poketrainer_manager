@@ -3,7 +3,6 @@
 
 <h1><%= @poketrainer.name %></h1>
 
-<%= link_to 'Update Poketrainer', "/poketrainers/#{@poketrainer.id}/edit" %>
 <%= link_to "#{@poketrainer.name}'s Pokemon", "/poketrainers/#{@poketrainer.id}/pokemons" %>
 
 <ul>
@@ -13,3 +12,6 @@
   <li>Has a bike: <%= @poketrainer.has_bike %>
   <li>Number of Pokemon caught: <%= @poketrainer.pokemon_count %>
 </ul>
+
+<%= link_to 'Update Poketrainer', "/poketrainers/#{@poketrainer.id}/edit" %>
+<%= link_to 'Delete Poketrainer', "/poketrainers/#{@poketrainer.id}", method: :delete %>

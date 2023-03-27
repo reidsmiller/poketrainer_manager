@@ -3,7 +3,6 @@
   <li><a href='/poketrainers'>Poketrainer Index</a></li>
 </ul>
 <h1><%= @pokemon.name %></h1>
-<p><a href="/pokemons/<%= @pokemon.id %>/edit">Update Pokemon</a></p>
 <ul>
   <li>Level: <%= @pokemon.level %></li>
   <li>Primary Type: <%= @pokemon.primary_type %></li>
@@ -11,3 +10,6 @@
   <li>Temperment: <%= @pokemon.temperment %></li>
   <li>Bonded to trainer?: <%= @pokemon.bonded_to_trainer %></li>
 </ul>
+
+<%= link_to 'Update Pokemon', "/pokemons/#{@pokemon.id}/edit" %>
+<%= link_to 'Delete Pokemon', "/pokemons/#{@pokemon.id}", method: :delete %>

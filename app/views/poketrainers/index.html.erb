@@ -6,5 +6,6 @@
 
 <% @poketrainers.each do |poketrainer| %>
   <h2><%= poketrainer.name %></h2>
-  <%= link_to "Edit #{poketrainer.name}", "/poketrainers/#{poketrainer.id}/edit" %>
+  <%= button_to "Edit #{poketrainer.name}", "/poketrainers/#{poketrainer.id}/edit", method: :get %>
+  <%= button_to "Delete #{poketrainer.name}", "/poketrainers/#{poketrainer.id}", method: :delete %>
 <% end %>

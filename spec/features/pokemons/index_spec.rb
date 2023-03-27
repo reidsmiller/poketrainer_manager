@@ -47,14 +47,26 @@ RSpec.describe "/pokemons", type: :feature do
 
     it 'I see a link next to each pokemon to edit its info' do
       visit "/pokemons"
-      expect(page).to have_link("Edit #{@pokemon_1.name}", href: "/pokemons/#{@pokemon_1.id}/edit")
-      click_link "Edit #{@pokemon_1.name}"
+      expect(page).to have_button("Edit #{@pokemon_1.name}")
+      click_button "Edit #{@pokemon_1.name}"
       expect(current_path).to eq("/pokemons/#{@pokemon_1.id}/edit")
 
       visit "/pokemons"
-      expect(page).to have_link("Edit #{@pokemon_2.name}", href: "/pokemons/#{@pokemon_2.id}/edit")
-      click_link "Edit #{@pokemon_2.name}"
+      expect(page).to have_button("Edit #{@pokemon_2.name}")
+      click_button "Edit #{@pokemon_2.name}"
       expect(current_path).to eq("/pokemons/#{@pokemon_2.id}/edit")
+    end
+
+    it 'I see a link to delete each pokemon next to each pokemon' do
+      visit "/pokemons"
+      expect(page).to have_button("Delete #{@pokemon_1.name}")
+      click_button "Delete #{@pokemon_1.name}"
+      expect(current_path).to eq("/pokemons")
+
+      visit "/pokemons"
+      expect(page).to have_button("Delete #{@pokemon_2.name}")
+      click_button "Delete #{@pokemon_2.name}"
+      expect(current_path).to eq("/pokemons")
     end
   end
 end

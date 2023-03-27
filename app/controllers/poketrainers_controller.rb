@@ -26,6 +26,11 @@ class PoketrainersController < ApplicationController
     redirect_to "/poketrainers/#{poketrainer.id}"
   end
 
+  def destroy
+    Poketrainer.destroy(params[:id])
+    redirect_to '/poketrainers'
+  end
+
   private
   def poketrainer_params
     params.permit(:name, :age, :hometown, :gym_badges, :has_bike)

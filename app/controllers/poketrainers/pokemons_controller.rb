@@ -1,8 +1,10 @@
 class Poketrainers::PokemonsController < ApplicationController
   def index
     @poketrainer = Poketrainer.find(params[:id])
-    if params[:sort_by] == "name_asc"
-      @pokemons = @poketrainer.pokemons.order(name: :asc)
+    if params[:sort_by] != nil
+      @pokemons = @poketrainer.order_pokemons(params[:sort_by])
+    elsif params[:level_input] != nil
+      @pokemons = @poketrainer.level_filter(params[:level_input])
     else
       @pokemons = @poketrainer.pokemons
     end

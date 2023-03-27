@@ -204,7 +204,7 @@ I should be taken to that `child_table_name` edit page where I can update its in
 
 ## CRUD
 
-[ ] done
+[x] done
 
 ### User Story 19, Parent Delete 
 
@@ -216,7 +216,7 @@ Then a 'DELETE' request is sent to '/parents/:id',
 the parent is deleted, and all child records are deleted
 and I am redirected to the parent index page where I no longer see this parent
 
-[ ] done
+[x] done
 
 ### User Story 20, Child Delete 
 
@@ -230,7 +230,7 @@ and I am redirected to the child index page where I no longer see this child
 
 ## ActiveRecord
 
-[ ] done
+[x] done
 
 ### User Story 21, Display Records Over a Given Threshold 
 
@@ -242,7 +242,7 @@ Then I am brought back to the current index page with only the records that meet
 
 ## Usability
 
-[ ] done
+[x] done
 
 ### User Story 22, Parent Delete From Parent Index Page 
 

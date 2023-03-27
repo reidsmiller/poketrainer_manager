@@ -20,5 +20,11 @@ RSpec.describe Poketrainer, type: :model do
     it '#pokemon_count' do
       expect(@ash_ketchum.pokemon_count).to eq(3)
     end
+
+    it '#order_pokemons' do
+      @poketrainer = @ash_ketchum
+  
+      expect(@poketrainer.order_pokemons("name_asc")).to eq([@pokemon_5, @pokemon_2, @pokemon_1])
+    end
   end
 end

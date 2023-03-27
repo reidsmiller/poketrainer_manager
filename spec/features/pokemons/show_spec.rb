@@ -52,5 +52,14 @@ RSpec.describe "/pokemons/:id", type: :feature do
       click_link('Update Pokemon')
       expect(page).to have_current_path("/pokemons/#{@pokemon_2.id}/edit")
     end
+
+    it 'I see a link to delete pokemon' do
+      visit "pokemons/#{@pokemon_1.id}"
+      expect(page).to have_link('Delete Pokemon', href:"/pokemons/#{@pokemon_1.id}")
+
+      click_link('Delete Pokemon')
+      expect(current_path).to eq('/pokemons')
+      expect(page).to have_no_content(@pokemon_1.name)
+    end
   end
 end
