@@ -6,6 +6,13 @@ RSpec.describe "/poketrainers", type: :feature do
       @ash_ketchum = Poketrainer.create!(name: "Ash Ketchum", age: 14, hometown: "Cerulean", gym_badges: 6, has_bike: false, created_at: 2.days.ago)
       @misty = Poketrainer.create!(name: "Misty", age: 13, hometown: "Somewhere", gym_badges: 5, has_bike: true, created_at: Time.current)
       @brock = Poketrainer.create!(name: "Brock", age: 15, hometown: "Somewhere", gym_badges: 6, has_bike: true, created_at: 1.day.ago)
+
+      @pokemon_1 = @ash_ketchum.pokemons.create!(name: 'Pikachu', level: 30, primary_type: 'Electric', secondary_type: 'None', temperment: 'Angsty', bonded_to_trainer: true)
+      @pokemon_2 = @ash_ketchum.pokemons.create!(name: 'Mew', level: 100, primary_type: 'Psychic', secondary_type: 'None', temperment: 'Enlightened', bonded_to_trainer: false)
+      @pokemon_3 = @misty.pokemons.create!(name: 'Staryu', level: 28, primary_type: 'Water', secondary_type: 'None', temperment: 'Flippant', bonded_to_trainer: true)
+      @pokemon_4 = @misty.pokemons.create!(name: 'Psyduck', level: 20, primary_type: 'Water', secondary_type: 'Psychic', temperment: 'Confused', bonded_to_trainer: true)
+      @pokemon_5 = @misty.pokemons.create!(name: 'Mew', level: 100, primary_type: 'Psychic', secondary_type: 'None', temperment: 'Enlightened', bonded_to_trainer: false)
+      @pokemon_6 = @brock.pokemons.create!(name: 'Onyx', level: 35, primary_type: 'Rock', secondary_type: 'Ground', temperment: 'Stubborn', bonded_to_trainer: true)
     end
 
     it 'displayes the name of each poketrainer' do
@@ -73,6 +80,23 @@ RSpec.describe "/poketrainers", type: :feature do
       expect(page).to have_button("Delete #{@brock.name}")
       click_button "Delete #{@brock.name}"
       expect(current_path).to eq("/poketrainers")
+    end
+
+    it 'I see a link to sort parents by number of pokemon they have' do
+      visit "/poketrainers"
+      expect(page).to have_link("Sort by number of Pokemon caught", href: "/poketrainers")
+      click_link "Sort by number of Pokemon caught"
+      expect(current_path).to eq("/poketrainers")
+      expect(@misty.name).to appear_before(@ash_ketchum.name)
+      expect(@misty.name).to appear_before(@brock.name)
+      expect(@ash_ketchum).to appear_before(@brock.name)
+    end
+
+    it 'I see the number of pokemon next to each poketrainer' do
+      visit "/poketrainers"
+      expect(page).to have_content("Pokemon caught: #{@ash_ketchum.pokemon_count}")
+      expect(page).to have_content("Pokemon caught: #{@misty.pokemon_count}")
+      expect(page).to have_content("Pokemon caught: #{@brock.pokemon_count}")
     end
   end
 end
