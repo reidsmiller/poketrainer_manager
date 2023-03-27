@@ -20,14 +20,6 @@ class Poketrainers::PokemonsController < ApplicationController
     redirect_to "/poketrainers/#{params[:id]}/pokemons"
   end
 
-  def level_filter
-    level_input = params[:level_input].to_i
-    @poketrainer = Poketrainer.find(params[:id])
-    @pokemons = @poketrainer.pokemons.where('level > ?', level_input)
-
-    render 'index'
-  end
-
   private
   def pokemon_params
     params.permit(:name, :level, :primary_type, :secondary_type, :temperment, :bonded_to_trainer)

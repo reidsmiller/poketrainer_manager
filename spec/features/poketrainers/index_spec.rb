@@ -60,6 +60,7 @@ RSpec.describe "/poketrainers", type: :feature do
 
     it 'I see a link to delete each poketrainer next to each poketrainer' do
       visit "/poketrainers"
+      save_and_open_page
       expect(page).to have_button("Delete #{@ash_ketchum.name}")
       click_button "Delete #{@ash_ketchum.name}"
       expect(current_path).to eq("/poketrainers")
