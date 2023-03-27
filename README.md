@@ -242,7 +242,7 @@ Then I am brought back to the current index page with only the records that meet
 
 ## Usability
 
-[ ] done
+[x] done
 
 ### User Story 22, Parent Delete From Parent Index Page 
 
