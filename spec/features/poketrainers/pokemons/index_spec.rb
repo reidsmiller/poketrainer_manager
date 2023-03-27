@@ -100,5 +100,21 @@ RSpec.describe '/poketrainers/:id/pokemons', type: :feature do
       click_link "Edit #{@pokemon_5.name}"
       expect(current_path).to eq("/pokemons/#{@pokemon_5.id}/edit")
     end
+
+    it 'I see a form that allows me to input number value, input a value, and click on submit' do
+      visit "/poketrainers/#{@ash_ketchum.id}/pokemons"
+
+      expect(page).to have_content("Level")
+      expect(page).to have_field('level_param')
+      expect(page).to have_button('Return Pokemon with a level higher than above')
+
+      fill_in 'level_param', with: 29
+      click_button 'Only return Pokemon with a level higher than above'
+
+      expect(current_path).to be("/poketrainers/#{@ash_ketchum.id}/pokemons")
+      expect(page).to have_content(@pokemon_1.name)
+      expect(page).to have_content(@pokemon_2.name)
+      expect(page).to have_no_content(@pokemon_5.name)
+    end
   end
 end
