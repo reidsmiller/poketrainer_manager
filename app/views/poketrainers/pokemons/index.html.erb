@@ -6,10 +6,10 @@
 
 <%= link_to 'Catch Pokemon', "/poketrainers/#{@poketrainer.id}/pokemons/new" %>
 <%= link_to 'Sort Alphabetically', { sort_by: "name_asc" } %>
-<%= form_with url: "/poketrainers/#{@poketrainer.id}/pokemons", method: :get, local: true do |form| %>
+<%= form_with url: "/poketrainers/#{@poketrainer.id}/pokemons/level_filter", method: :get, local: true do |form| %>
   <%= form.label :level %>
-  <%= form.text_field :level_param %>
-  <%= form.button 'Return Pokemon with a level higher than above' %>
+  <%= form.text_field :level_input %>
+  <%= form.submit 'Return Pokemon that are a higher level' %>
 <% end %>
 
 <% @pokemons.each do |pokemon| %>

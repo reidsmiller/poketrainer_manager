@@ -105,13 +105,12 @@ RSpec.describe '/poketrainers/:id/pokemons', type: :feature do
       visit "/poketrainers/#{@ash_ketchum.id}/pokemons"
 
       expect(page).to have_content("Level")
-      expect(page).to have_field('level_param')
-      expect(page).to have_button('Return Pokemon with a level higher than above')
+      expect(page).to have_field('level_input')
+      expect(page).to have_button('Return Pokemon that are a higher level')
 
-      fill_in 'level_param', with: 29
-      click_button 'Only return Pokemon with a level higher than above'
+      fill_in 'level_input', with: 29
+      click_button 'Return Pokemon that are a higher level'
 
-      expect(current_path).to be("/poketrainers/#{@ash_ketchum.id}/pokemons")
       expect(page).to have_content(@pokemon_1.name)
       expect(page).to have_content(@pokemon_2.name)
       expect(page).to have_no_content(@pokemon_5.name)

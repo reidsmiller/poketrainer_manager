@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   get '/poketrainers/:id/pokemons', to: 'poketrainers/pokemons#index'
   get '/poketrainers/:id/pokemons/new', to: 'poketrainers/pokemons#new'
   post '/poketrainers/:id/pokemons', to: 'poketrainers/pokemons#create'
+  get 'poketrainers/:id/pokemons/level_filter', to: 'poketrainers/pokemons#level_filter'
 end
