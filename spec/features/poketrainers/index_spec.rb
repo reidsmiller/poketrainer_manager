@@ -43,19 +43,36 @@ RSpec.describe "/poketrainers", type: :feature do
 
     it 'I can see a link next to every poketrainer to edit its info' do
       visit "/poketrainers"
-      expect(page).to have_link("Edit #{@ash_ketchum.name}", href: "/poketrainers/#{@ash_ketchum.id}/edit")
-      click_link "Edit #{@ash_ketchum.name}"
+      expect(page).to have_button("Edit #{@ash_ketchum.name}")
+      click_button "Edit #{@ash_ketchum.name}"
       expect(current_path).to eq("/poketrainers/#{@ash_ketchum.id}/edit")
 
       visit "/poketrainers"
-      expect(page).to have_link("Edit #{@misty.name}", href: "/poketrainers/#{@misty.id}/edit")
-      click_link "Edit #{@misty.name}"
+      expect(page).to have_button("Edit #{@misty.name}")
+      click_button "Edit #{@misty.name}"
       expect(current_path).to eq("/poketrainers/#{@misty.id}/edit")
 
       visit "/poketrainers"
-      expect(page).to have_link("Edit #{@brock.name}", href: "/poketrainers/#{@brock.id}/edit")
-      click_link "Edit #{@brock.name}"
+      expect(page).to have_button("Edit #{@brock.name}")
+      click_button "Edit #{@brock.name}"
       expect(current_path).to eq("/poketrainers/#{@brock.id}/edit")
+    end
+
+    it 'I see a link to delete each poketrainer next to each poketrainer' do
+      visit "/poketrainers"
+      expect(page).to have_button("Delete #{@ash_ketchum.name}")
+      click_button "Delete #{@ash_ketchum.name}"
+      expect(current_path).to eq("/poketrainers")
+
+      visit "/poketrainers"
+      expect(page).to have_button("Delete #{@misty.name}")
+      click_button "Delete #{@misty.name}"
+      expect(current_path).to eq("/poketrainers")
+
+      visit "/poketrainers"
+      expect(page).to have_button("Delete #{@brock.name}")
+      click_button "Delete #{@brock.name}"
+      expect(current_path).to eq("/poketrainers")
     end
   end
 end
