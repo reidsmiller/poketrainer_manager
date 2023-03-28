@@ -2,6 +2,8 @@ class PokemonsController < ApplicationController
   def index
     if params[:commit] == 'Exact Match Search'
       @pokemons = Pokemon.search_pokemons_exact(params[:exact_match_search])
+    elsif params[:commit] == 'Partial Match Search'
+      @pokemons = Pokemon.search_pokemons_partial(params[:partial_match_search])
     else
       @pokemons = Pokemon.all
     end

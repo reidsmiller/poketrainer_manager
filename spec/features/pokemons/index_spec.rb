@@ -88,5 +88,21 @@ RSpec.describe "/pokemons", type: :feature do
       expect(page).to have_no_content(@pokemon_4.name)
       expect(page).to have_no_content(@pokemon_5.name)
     end
+
+    it 'I see a text box to filter results by keyword for partial match' do
+      visit "/pokemons"
+      expect(page).to have_field('partial_match_search')
+      expect(page).to have_button('Partial Match Search')
+
+      fill_in 'partial_match_search', with: 'gia'
+      click_button 'Partial Match Search'
+
+      expect(current_path).to eq('/pokemons')
+      expect(page).to have_content(@pokemon_2.name)
+      expect(page).to have_no_content(@pokemon_1.name)
+      expect(page).to have_no_content(@pokemon_3.name)
+      expect(page).to have_no_content(@pokemon_4.name)
+      expect(page).to have_no_content(@pokemon_5.name)
+    end
   end
 end
