@@ -12,6 +12,10 @@ class Poketrainer < ApplicationRecord
   def self.search_poketrainers_exact(query)
     where('name = ?', query)
   end
+
+  def self.search_poketrainers_partial(query)
+    where('name LIKE ?', "%#{query}%")
+  end
   
   def pokemon_count
     pokemons.count
