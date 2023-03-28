@@ -8,6 +8,10 @@ class Poketrainer < ApplicationRecord
   def self.sort_by_num_pokemon
     left_outer_joins(:pokemons).group("poketrainers.id").order("COUNT(pokemons.id) DESC")
   end
+
+  def self.search_poketrainers_exact(query)
+    where('name = ?', query)
+  end
   
   def pokemon_count
     pokemons.count

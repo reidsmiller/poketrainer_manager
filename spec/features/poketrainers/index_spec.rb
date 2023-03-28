@@ -94,10 +94,24 @@ RSpec.describe "/poketrainers", type: :feature do
 
     it 'I see the number of pokemon next to each poketrainer' do
       visit "/poketrainers"
-      save_and_open_page
+
       expect(page).to have_content("Pokemon Caught: #{@ash_ketchum.pokemon_count}")
       expect(page).to have_content("Pokemon Caught: #{@misty.pokemon_count}")
       expect(page).to have_content("Pokemon Caught: #{@brock.pokemon_count}")
+    end
+
+    it 'I see a text box to filter results by keyword for exact match' do
+      visit "/poketrainers"
+      expect(page).to have_field('exact_match_search')
+      expect(page).to have_button('Exact Match Search')
+
+      fill_in 'exact_match_search', with: 'Misty'
+      click_button 'Exact Match Search'
+
+      expect(current_path).to eq('/poketrainers')
+      expect(page).to have_content(@misty.name)
+      expect(page).to have_no_content(@ash_ketchum.name)
+      expect(page).to have_no_content(@brock.name)
     end
   end
 end

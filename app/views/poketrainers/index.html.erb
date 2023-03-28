@@ -2,6 +2,11 @@
 
 <h1>Poketrainer Index Page</h1>
 
+<%= form_with url: "/poketrainers", method: :get, local: true do |form| %>
+  <%= form.text_field :exact_match_search %>
+  <%= form.submit 'Exact Match Search' %>
+<% end %>
+
 <%= link_to 'New Poketrainer', '/poketrainers/new' %>
 <%= link_to 'Sort by Number of Pokemon Caught', sort_by: "pokemon_caught_desc" %>
 
