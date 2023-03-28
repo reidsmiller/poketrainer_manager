@@ -1,7 +1,12 @@
 <%= link_to 'Poketrainer Index', '/poketrainers' %>
 
 <h1>Pokemon Index Page</h1>
-<br>
+
+<%= form_with url: "/pokemons", method: :get, local: true do |form| %>
+  <%= form.text_field :exact_match_search %>
+  <%= form.submit 'Exact Match Search' %>
+<% end %>
+
 <% @pokemons.each do |pokemon| %>
   <h3><%= pokemon.name %></h3>
   <ul>
