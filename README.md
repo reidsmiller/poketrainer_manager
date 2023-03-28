@@ -264,7 +264,7 @@ I should be taken to the `child_table_name` index page where I no longer see tha
 
 # Extensions
 
-[ ] done
+[x] done
 
 ### Extension 1: Sort Parents by Number of Children 
 

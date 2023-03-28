@@ -1,7 +1,15 @@
 class PoketrainersController < ApplicationController
 
   def index
-    @poketrainers = Poketrainer.order(created_at: :desc)
+    if params[:sort_by] == "pokemon_caught_desc"
+      @poketrainers = Poketrainer.sort_by_num_pokemon
+    elsif params[:commit] == "Exact Match Search"
+      @poketrainers = Poketrainer.search_poketrainers_exact(params[:exact_match_search])
+    elsif params[:commit] == "Partial Match Search"
+      @poketrainers = Poketrainer.search_poketrainers_partial(params[:partial_match_search])
+    else
+      @poketrainers = Poketrainer.default_order# order(created_at: :desc)
+    end
   end
 
   def show

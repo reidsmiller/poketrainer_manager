@@ -1,14 +1,28 @@
 class Poketrainer < ApplicationRecord
   has_many :pokemons, dependent: :destroy
 
+  def self.default_order
+    order(created_at: :desc)
+  end
+
+  def self.sort_by_num_pokemon
+    left_outer_joins(:pokemons).group("poketrainers.id").order("COUNT(pokemons.id) DESC")
+  end
+
+  def self.search_poketrainers_exact(query)
+    where('name = ?', query)
+  end
+
+  def self.search_poketrainers_partial(query)
+    where('name LIKE ?', "%#{query}%")
+  end
+  
   def pokemon_count
     pokemons.count
   end
 
-  def order_pokemons(sort_by)
-    if sort_by == "name_asc"
+  def order_pokemons
       pokemons.order(name: :asc)
-    end
   end
 
   def level_filter(level_input)
