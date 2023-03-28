@@ -84,19 +84,20 @@ RSpec.describe "/poketrainers", type: :feature do
 
     it 'I see a link to sort parents by number of pokemon they have' do
       visit "/poketrainers"
-      expect(page).to have_link("Sort by number of Pokemon caught", href: "/poketrainers")
-      click_link "Sort by number of Pokemon caught"
+      expect(page).to have_link("Sort by Number of Pokemon Caught", href: false)
+      click_link "Sort by Number of Pokemon Caught"
       expect(current_path).to eq("/poketrainers")
       expect(@misty.name).to appear_before(@ash_ketchum.name)
       expect(@misty.name).to appear_before(@brock.name)
-      expect(@ash_ketchum).to appear_before(@brock.name)
+      expect(@ash_ketchum.name).to appear_before(@brock.name)
     end
 
     it 'I see the number of pokemon next to each poketrainer' do
       visit "/poketrainers"
-      expect(page).to have_content("Pokemon caught: #{@ash_ketchum.pokemon_count}")
-      expect(page).to have_content("Pokemon caught: #{@misty.pokemon_count}")
-      expect(page).to have_content("Pokemon caught: #{@brock.pokemon_count}")
+      save_and_open_page
+      expect(page).to have_content("Pokemon Caught: #{@ash_ketchum.pokemon_count}")
+      expect(page).to have_content("Pokemon Caught: #{@misty.pokemon_count}")
+      expect(page).to have_content("Pokemon Caught: #{@brock.pokemon_count}")
     end
   end
 end

@@ -3,9 +3,11 @@
 <h1>Poketrainer Index Page</h1>
 
 <%= link_to 'New Poketrainer', '/poketrainers/new' %>
+<%= link_to 'Sort by Number of Pokemon Caught', sort_by: "pokemon_caught_desc" %>
 
 <% @poketrainers.each do |poketrainer| %>
   <h2><%= poketrainer.name %></h2>
+  <p>Pokemon Caught: <%= poketrainer.pokemon_count %></p>
   <%= button_to "Edit #{poketrainer.name}", "/poketrainers/#{poketrainer.id}/edit", method: :get %>
   <%= button_to "Delete #{poketrainer.name}", "/poketrainers/#{poketrainer.id}", method: :delete %>
 <% end %>

@@ -1,7 +1,11 @@
 class PoketrainersController < ApplicationController
 
   def index
-    @poketrainers = Poketrainer.order(created_at: :desc)
+    if params[:sort_by] == "pokemon_caught_desc"
+      @poketrainers = Poketrainer.sort_by_num_pokemon
+    else
+      @poketrainers = Poketrainer.default_order# order(created_at: :desc)
+    end
   end
 
   def show
